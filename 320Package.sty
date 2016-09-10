@@ -1,0 +1,135 @@
+% Nauman Shahzad
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{320Package}[2016/06/23 320 homework LaTeX package]
+
+\RequirePackage[margin=.5in]{geometry}
+\RequirePackage[default]{lato}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{sourcecodepro}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{fontawesome}
+\RequirePackage{color,linegoal}
+\RequirePackage{amsmath}
+\RequirePackage{varwidth}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{xcolor}
+\RequirePackage{minted}
+\RequirePackage{mdframed}
+\RequirePackage{hyperref}
+\RequirePackage{ragged2e}
+\RequirePackage{parskip}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+% Command for making gray boxes
+% Need to add commands for it with different symbols/colors as well
+% \infoBox{...}
+%
+% \infoboxCircle{...}
+% \infoBoxTriangle{...}
+%
+% \infoBoxCircleRed{...}
+% \infoBoxTriangleRed{...}
+\newcommand{\infoBox}[1]{\colorbox{gray!30}{\parbox[t]{\linegoal}{#1}}}
+
+\newcommand{\infoBoxCircle}[1]{\colorbox{gray!30}{\parbox[t]{\linegoal}{\faExclamationCircle \hspace{.025in} #1}}}
+\newcommand{\infoBoxTriangle}[1]{\colorbox{gray!30}{\parbox[t]{\linegoal}{\faExclamationTriangle \hspace{.025in} #1}}}
+
+\newcommand{\infoBoxCircleRed}[1]{\colorbox{gray!30}{\parbox[t]{\linegoal}{
+\textcolor{red!100}{\faExclamationCircle} \hspace{.025in} #1}}}
+
+\newcommand{\infoBoxTriangleRed}[1]{\colorbox{gray!30}{\parbox[t]{\linegoal}{
+\textcolor{red!100}{\faExclamationTriangle} \hspace{.025in} #1}}}
+
+% Command for making section title
+% \title{...}
+\renewcommand{\title}[1]{\huge{\textbf{#1}}\large{}\\}
+\newcommand{\subtitle}[1]{\LARGE{#1}\large{}\\}
+\newcommand{\subsubtitle}[1]{\Large{#1}\large{}\\}
+% Command for newline
+% \newline
+\renewcommand{\newline}{\hspace{.1in}\\}
+% Line spacing stuff
+\renewcommand{\baselinestretch}{1.15}
+% New paragraph
+\newcommand{\npar}{\\[\baselineskip]}
+
+% Color text commands and circle/triangle exclamation icons
+% \color{COLOR}{...}
+% \black{...}
+% \red{...}
+% \redTriangle
+%
+% \triangle
+% \circle
+%
+% \grayLightShade{...}
+% \grayDarkShade{..}
+\definecolor{mygreen}{RGB}{0, 128, 0}
+\newcommand{\mycolor}[2]{\textcolor{#1!100}{#2}}
+
+\newcommand{\black}[1]{\textcolor{black!100}{#1}}
+
+\newcommand{\blue}[1]{\textcolor{blue!100}{#1}}
+
+\newcommand{\green}[1]{\textcolor{mygreen}{#1}}
+
+\newcommand{\red}[1]{\textcolor{red!100}{#1}}
+
+\newcommand{\yellow}[1]{\textcolor{yellow!100}{#1}}
+
+\newcommand{\redTriangle}[1]{\textcolor{red!100}{\faExclamationTriangle \hspace{.025in} #1}}
+
+\renewcommand{\triangle}{\faExclamationTriangle \hspace{.025in}}
+\renewcommand{\circle}{\faExclamationCircle \hspace{.025in}}
+
+\newcommand{\grayLightShade}[1]{\colorbox{gray!30}{#1}}
+\newcommand{\grayDarkShade}[1]{\colorbox{gray!60}{#1}}
+
+%graybg for code blocks
+\definecolor{codebg}{rgb}{0.85,0.85,0.85}
+%cmd for inline monospaced graybg text
+\newcommand{\code}[1]{\grayLightShade{\tt #1}}
+
+%Command for including graphics/images
+% first command with default width and height specification
+% \image{IMAGE_NAME}
+\newcommand{\image}[1]{
+    \begin{center}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=12.5cm, height=5cm]{#1}
+    \end{figure}
+    \end{center}
+}
+
+%Another command for specifying your own width and height alongside image name
+% \imageSpec{IMAGE_NAME}{WIDTH}{HEIGHT}
+\newcommand{\imageSpec}[3]{
+    \begin{center}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width= #2 cm, height= #3 cm]{#1}
+    \end{figure}
+    \end{center}
+}
+
+
+% Command to put at start of the file, pass HW title
+% \beginFile{...}
+\newcommand{\beginFile}[1]{
+\begin{document}
+\centering
+\Huge{\textbf{#1}}
+\\\hspace{.1in}\\
+\begin{flushleft}
+}
+
+\renewcommand{\endFile}{\end{flushleft}\end{document}}
